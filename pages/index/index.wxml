@@ -1,0 +1,58 @@
+<view>
+  <!-- 引入公共的搜索框 -->
+  <search-input />
+  <!-- 轮播图 -->
+  <view class="swiper_container">
+    <swiper class="swiper" circular="{{circular}}" indicator-active-color="{{indicatorActivecolor}}"
+      indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{swiperList}}" wx:key="index">
+        <swiper-item>
+          <!-- <view class="swiper-item "></view> -->
+          <!-- 
+            image 图片标签 有一个  
+            mode 属性 widthFix 属性
+            让图片的标签宽高  和 图片标签的内容的宽高 等比例发生变化
+
+           -->
+          <image mode="widthFix" class="image" src="{{item.image_src}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 轮播图 -->
+  <!-- menu 菜单 -->
+  <view class="menu_container">
+    <navigator class="nav_item" open-type="{{switchTab}}" url="/pages/tabBar/category/index" wx:for="{{menuList}}"
+      wx:key="index">
+      <image class="image" src="{{item.image_src}}"></image>
+    </navigator>
+  </view>
+  <!-- menu 菜单 -->
+  <!-- 主题图片列表 -->
+  <view class="list_container" wx:for="{{listData}}" wx:key="index">
+    <view class="title">{{item.floor_title.name}}</view>
+    <view class="list_data" wx:if='{{item.product_list.length>0}}'>
+      <view class="itemed_left">
+        <navigator url="/pages/goods_list/index" open-type="navigate">
+          <image src="{{item.product_list[0].image_src}}"></image>
+        </navigator>
+      </view>
+      <block wx:if='{{item.product_list.length>1}}'>
+        <view class="view_box">
+          <block wx:for="{{item.product_list}}" wx:key="idx" wx:for-index="idx" wx:for-item="l">
+            <view class="itemed_right" wx:if='{{idx!=0}}'>
+              <navigator url="/pages/goods_list/index" open-type="navigate">
+                <image src="{{l.image_src}}"></image>
+              </navigator>
+              <!-- <image src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+              <image src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+              <image src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image> -->
+            </view>
+          </block>
+        </view>
+
+      </block>
+    </view>
+  </view>
+  <!-- 主题图片列表 -->
+</view>

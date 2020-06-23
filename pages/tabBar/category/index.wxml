@@ -1,0 +1,29 @@
+<!--pages/tabBar/category/index.wxml-->
+<!-- 引入公共的搜索框 -->
+<search-input />
+<view class="category_container">
+  <view class="left_container">
+    <scroll-view scroll-y="true" style="height: 100%;">
+      <block wx:for="{{categorList}}" wx:key="index">
+        <view class="left_list {{index===selected?'actived':''}}" data-id="{{index}}" catchtap="menuLeftBtn">{{item.cat_name}}</view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="right_container">
+    <scroll-view scroll-y="true"  style="height: 100%;" scroll-top="{{scrollTop}}">
+      <block wx:for="{{menuRightArr}}" wx:key="index">
+        <block wx:for="{{item}}" wx:key="i" wx:for-index="i" wx:for-item="l">
+          <view class="title">{{l.cat_name}}</view>
+          <view class="flexBtn">
+            <block wx:if="l.children.length>0">
+              <navigator url="/pages/goods_list/index?cid={{data.cat_id}}" open-type="navigate" class="li_box" wx:for="{{l.children}}" wx:key="id" wx:for-index="id" wx:for-item="data">
+                <image class="image" src="{{data.cat_icon}}"></image>
+                <text class="text">{{data.cat_name}}</text>
+               </navigator>
+            </block>
+          </view>
+        </block>
+      </block>
+    </scroll-view>
+  </view>
+</view>

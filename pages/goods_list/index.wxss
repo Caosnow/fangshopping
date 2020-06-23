@@ -1,0 +1,36 @@
+/* pages/goods_list/index.wxss */
+.goodList {
+  display: flex;
+}
+.goodList .img_container {
+  flex: 3;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.goodList .img_container image {
+  width: 100%;
+  height: 180rpx;
+  border-radius: 10rpx;
+}
+.goodList .name {
+  flex: 5;
+  padding: 18rpx 10rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.goodList .name .text {
+  line-height: 50rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.goodList .name .price {
+  position: absolute;
+  left: 0;
+  bottom: 28rpx;
+  color: red;
+}

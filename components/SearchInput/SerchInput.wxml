@@ -1,0 +1,6 @@
+<!--components/SearchInput/SerchInput.wxml-->
+
+<view class="search_input">
+  <!-- navigator url跳转一定要带上  open-type="navigate" -->
+  <navigator url="/pages/search/index" open-type="navigate" class="navigator">搜索</navigator>
+</view>

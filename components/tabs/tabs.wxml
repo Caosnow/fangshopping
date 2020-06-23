@@ -1,0 +1,6 @@
+<!--components/tabs/tabs.wxml-->
+<view class="tabList">
+  <view bindtap="tabBtnFn" data-id="{{item.id}}" data-show="{{item.isActived}}"
+    class="title {{item.isActived?'actived':''}}"
+     wx:for="{{tabs}}" wx:key="index">{{item.name}}</view>
+</view>

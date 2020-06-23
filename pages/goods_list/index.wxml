@@ -1,0 +1,13 @@
+<!--pages/goods_list/index.wxml-->
+<search-input></search-input>
+<tabs tabs="{{tabs}}" catchisShowBtn="isShowBtn"></tabs>
+<!-- 列表 -->
+<view class="goodList" catchtap="getDetail" data-id="{{item.goods_id}}" wx:for="{{goodsList}}" wx:key="index">
+  <navigator class="img_container">
+    <image src="{{item.goods_small_logo}}"></image>
+  </navigator>
+  <view class="name">
+    <text class="text">{{item.goods_name}}</text>
+    <view class="price">￥{{item.goods_price}}</view>
+  </view>
+</view>
